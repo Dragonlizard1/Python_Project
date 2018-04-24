@@ -1,0 +1,35 @@
+<html>
+	<head>
+		<!-- linking a css style sheet -->
+		<link rel="stylesheet" type="text/css" href="{{url_for('static', filename='my_style_sheet.css') }}">
+	</head>
+
+	<body>
+		<header>
+				<h1>Registration Form</h1>
+		</header>
+		<div id = "errmessage1">
+		{% with messages = get_flashed_messages(with_categories=true) %}
+		  {% if messages %}
+		    <ul class=flashes>
+		    {% for category, message in messages %}
+		      <li class="{{ category }}">{{ message }}</li>
+		    {% endfor %}
+		    </ul>
+		  {% endif %}
+		{% endwith %}
+		</div>
+		<div>
+			
+			<form action='/result' method='post'>
+		    <p>First Name:	<input id = "Fname" type='text' name='F_name'></p>
+		    <p>Last Name:		<input id = "Lname" type='text' name='L_name'></p>
+		    <p>Email:				<input id = "Email" type='text' name='E_mail'></p>
+		    <p>Password:		<input id = "pass1" type='text' name='P_word'></p>
+		    <p>Confirm Password:<input id = "cp" type='text' name='CP_word'></p>
+				<p>Date of Birth:		<input id = "DOB1" type='text' name='DOB'></p>
+				<input id="button1" type='submit' value='Submit'>
+			</form>
+		</div>
+	</body>
+</html>

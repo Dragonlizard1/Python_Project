@@ -1,0 +1,19 @@
+<html>
+<head>
+  <title>Users</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='my_style_sheet3.css') }}">
+</head>
+<body>
+ 
+  <div>
+    <h1>User {{users[0]["idusers"]}}</h1>
+
+    <ol>
+      <li>Full Name: {{users[0]["f_name"]}} {{users[0]["L_name"]}}</li>
+      <li>Email: {{users[0]["email"]}}</li>
+      <li>Created at: {{users[0]["created_at"]}}</li>
+    </ol>
+     <p> <a href = "/users/{{users[0]['idusers']}}/edit">Edit</a> | <a href = "/users/{{users[0]['idusers']}}/destroy">Delete</a></p>
+
+</body>
+</html>

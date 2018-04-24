@@ -1,0 +1,28 @@
+<html>
+<head>
+  <title>Semi_Restful</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'Course/my_style_sheet2.css' %}" charset="utf-8">
+</head>
+<body>
+ {% load static %}
+
+  
+
+  <div class = "modify">
+    <h2>Delete a User {{courses.id}}:</h2>
+    <form action='/destroy/{{users.id}}' method='POST'> 
+    {% csrf_token %}  
+      <ol>
+        <li>Full Name: {{courses.first_name}} {{courses.last_name}}</li>
+        <li>Email: {{courses.email}}</li>
+        <li>Created at: {{courses.created_at}}</li>
+      </ol>
+      <input class = "button" type="submit" value="Delete">
+    </form>
+      <p class = "links"> <a href = "/courses">Go Back</a> | <a href = "/courses/{{users.id}}">Show</a></p>
+  </div>
+
+
+</body>
+</html>

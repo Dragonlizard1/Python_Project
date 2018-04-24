@@ -1,0 +1,60 @@
+*
+{
+	margin: 0;
+	padding:20px 0 0 0;
+	font-family: arial;
+}
+
+body
+{
+	width:950px;
+	margin: auto;	
+}
+
+#wrap1
+{
+	text-align: center;
+}
+
+
+
+h1
+{
+	font-size: 45px;
+}
+
+h3
+{
+	font-size: 30px;
+
+}
+
+h4
+{
+	margin-bottom: 15px;
+}
+
+input
+{
+	width: 200px;
+	margin: 20px 300px 0 300px;
+	padding:10px;
+	text-align: center;
+}
+
+#answerX
+{
+	width: 950px;
+	height: 300px;
+	background-color: red;
+	text-align: center;
+}
+
+#answerY
+{
+	width: 950px;
+	height: 300px;
+	background-color: green;
+	text-align: center;
+}
+

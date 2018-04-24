@@ -1,0 +1,17 @@
+<html>
+	<head>
+		<!-- linking a css style sheet -->
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='my_style_sheet.css') }}">
+	</head>
+
+	<body>
+		<h1>Master Ninja Dojo</h1>
+		<h2>Registration to become a member</h2>
+		<form action='' method='post'>
+    Name:<input type='text' name='name'>
+    Email:<input type='text' name='email'>
+    <input type='submit' value='REGISTER'>
+		</form>
+
+	</body>
+</html>

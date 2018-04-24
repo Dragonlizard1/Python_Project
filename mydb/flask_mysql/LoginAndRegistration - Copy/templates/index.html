@@ -1,0 +1,52 @@
+<html>
+<head>
+  <title>Friends</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='my_style_sheet.css') }}">
+</head>
+<body>
+  <div id = "errmessage1">
+    {% with messages = get_flashed_messages(with_categories=true) %}
+      {% if messages %}
+        <ul class=flashes>
+        {% for category, message in messages %}
+          <li class="{{ category }}">{{ message }}</li>
+        {% endfor %}
+        </ul>
+      {% endif %}
+    {% endwith %}
+  </div>
+  {% if toggle1 == "create" %}
+  <div id = 'create'>
+      <p> {{ message_correct }} </p>
+  </div>
+ 
+   {% endif %}
+
+  <div>
+    <h1>Login</h1>
+    <form action='/login' method='POST'>   
+      <p><label for="email">Email: <input type="text" name="email" id="email"></label></p>
+      <p><label for="password">Password: <input type="text" name="password" id="password"></label></p>
+
+      <input type="submit" value="Login" id = "button">
+    </form>
+
+  </div>
+
+ 
+  <div>
+    <h2>REGISTRATION</h2>
+    <form action='/result' method='POST'>   
+    
+      <p><label for="first_name" value = "First Name:">First Name: <input type="text" name="first_name" id="first_name"></label></p>
+      <p><label for="last_name">Last Name: <input type="text" name="last_name" id="last_name"></label></p>
+      <p><label for="email">Email: <input type="text" name="email" id="email"></label></p>
+      <p><label for="password">Password: <input type="text" name="password" id="password"></label></p>
+      <p><label for="c_password">Confirm Password: <input type="text" name="c_password" id="c_password"></label></p>
+
+      <input type="submit" value="Registration" id = "button">
+    </form>
+  </div>
+
+</body>
+</html>

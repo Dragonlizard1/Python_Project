@@ -1,0 +1,54 @@
+<html>
+<head>
+  <title>Friends</title>
+  <link rel="stylesheet" type="text/css" href="{{url_for('static', filename='my_style_sheet.css') }}">
+</head>
+<body>
+   {% if toggle1 == "create" %}
+  <div id = 'create'>
+      <p> {{ message_correct }} </p>
+  </div>
+   {% elif toggle1 == "remove"  %}
+   <div id = "remove">
+      <p> {{ message_correct }} </p>
+
+   </div>
+   {% endif %}
+
+  <h1>Friends:</h1>
+
+  <p>Email Addresses Entered:</p>
+
+  <div id = "wrap">  
+    <div class = "email1">
+      <ul>
+        {% for list1 in emails: %}    
+          <li>{{ list1['email']}} </li>
+        {% endfor %}
+      </ul>
+
+    </div>
+    <div class = "email1">
+
+      <ul>
+        {% for list1 in emails: %}
+       <li>{{ list1['created_at']}}</li>
+        {% endfor %}
+      </ul>
+         
+    </div>
+  </div>
+ 
+    
+    <form action='/remove' method='POST'>   
+      <p><label for="email">Delete email: <input type="text" name="emailremove" id="emailremove"></label></p>
+      <input type="submit" value="Delete Email">
+    </form>
+    <form action='/result' method='POST'>   
+      <p><label for="email">Enter email: <input type="text" name="email" id="email"></label></p>
+    
+      <input type="submit" value="Add">
+    </form>
+
+</body>
+</html>

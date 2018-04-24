@@ -1,0 +1,90 @@
+*
+{
+	margin: 0;
+	padding:0;
+	font-family: arial;
+}
+
+body
+{
+	width: 500px;
+	margin: auto;
+	padding-top: 20px;
+}
+li
+{
+	text-align: left;
+	list-style: none;
+	color: red;
+}
+
+div
+{
+	width: 500px;
+	text-align: center;
+	border: 1px solid black;
+	vertical-align: top;
+}
+
+
+#leftdiv
+{
+	width: 240px;
+	border: none;
+	text-align: right;
+	display: inline-block;
+}
+
+#rightdiv
+{
+	text-align: left;
+	width: 240px;
+	border: none;
+	display: inline-block;
+	margin-bottom: 10px;
+}
+
+
+h1
+{
+	font-size: 65px;
+	padding: 10px;
+}
+
+h2
+{
+	padding: 10px;
+}
+
+#create1
+{
+	text-align:left;
+	color: green;
+}
+p
+{
+	width:400px;
+	text-align: right;
+}
+label
+{
+	width: 200px;
+	text-align:right;
+	margin-bottom: 10px;
+	padding: 10px;
+}
+input
+{
+	width: 200px;
+	margin-bottom: 10px;
+	padding: 10px;
+	text-align: left;
+}
+
+#button
+{
+	text-align: center;
+}
+
+
+

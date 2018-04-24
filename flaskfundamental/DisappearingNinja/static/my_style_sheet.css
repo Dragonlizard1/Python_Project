@@ -1,0 +1,35 @@
+*
+{
+	margin: 0;
+	padding:0;
+	font-family: arial;
+}
+
+body
+{
+	width:950px;
+	margin: auto;
+	
+}
+div
+{
+	text-align: center;
+}
+h1
+{
+	font-size: 100px;
+	text-decoration-style: none;
+	color: black;
+}
+
+h3
+{
+	font-size: 60px;
+
+}
+a
+{
+	text-decoration-style: none;
+	color: black;
+}
+
