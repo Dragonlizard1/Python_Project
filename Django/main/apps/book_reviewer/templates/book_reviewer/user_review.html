@@ -1,0 +1,70 @@
+<html>
+<head>
+  <title>Book Reviewer</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'book_reviewer/my_style_sheet4.css' %}" charset="utf-8">
+</head>
+<body>
+
+  <h2>{{book.title}} </h2><p id = "link1"><a href = "/books">Home</a><a href = "/add">Add Book and Review</a>   <a href = "/logout">Logout</a></p>
+  <h3>Author: {{book.book_author.author}} </h3>
+  <div class = "modify">
+    <h3>Recent Book Reviews:</h3>
+
+    {% for element in review  %}
+      <div class = "3list">
+       <p>Rating: 
+        {% for i in element.starnum %} 
+        {% if i == "y" %}
+        <img id = "stars" src = "{% static 'book_reviewer/star1.gif' %}">  
+
+        {% elif i == "x" %}
+        <img id = "stars" src = "{% static 'book_reviewer/star1outline.jpg' %}"> 
+        {% endif %}
+        {% endfor %}
+      </p>
+
+      <p><a href = "/users/{{element.review_id}}">{{element.review__first_name}}</a> says: {{element.comment}}</p>
+      <p>{{element.created_at}}</p>
+      </div>
+    {% endfor %}
+ 
+    
+      
+  
+
+
+ 
+  </div>
+
+  <div class = "modify2">
+ 
+
+    <div id = "list">
+    <h3>Add a Reviews:</h3>
+      <form action='/add_review/{{book.id}}' method='POST'>   
+      {% csrf_token %}
+      <p><textarea cols = "50" rows = "10" type = "text" name = "review"></textarea></p>
+
+      <p ><label>Rating:
+        <select name = "rating">
+          <option value= 1>1</option>
+          <option value= 2>2</option>
+          <option value= 3>3</option>
+          <option value= 4>4</option>
+          <option value= 5>5</option>
+
+        </select> stars.
+      </label></p>
+      <p id = "right1"><input id = "button1" type = "submit" value = "Add"></p>
+    </form>
+    </div>
+
+
+  </div>
+
+
+
+
+</body>
+</html>

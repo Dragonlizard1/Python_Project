@@ -1,0 +1,46 @@
+<html>
+<head>
+  <title>Book Reviewer</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'book_reviewer/my_style_sheet3.css' %}" charset="utf-8">
+</head>
+<body>
+  <p id = "link1"><a href = "/books">Home</a>   <a href = "/logout">Logout</a></p>
+  <h2>Add a New Book Title and a Review:</h2>
+
+  <div class = "modify">
+    <h3>Recent Book Reviews:</h3>
+    <form action='/add2' method='POST'>   
+      {% csrf_token %}
+      <p><label>Book Title:  <input type = "text" name = "title"></label></p>
+      <h3>Author:</h3>
+      <p class = "indent1"><label>Choose from the list:  
+ 
+        <select name = "author2">
+          <option value= 1>1</option>
+        </select></label></p>
+
+      <p class = "indent1"><label>Or add a new author:  <input type = "text" name = "author"></label></p>
+       <p><label>Review:  <textarea cols = "50" rows = "10" type = "text" name = "review"></textarea></label></p>
+
+      <p ><label>Rating:
+        <select name = "rating">
+          <option value= 1>1</option>
+          <option value= 2>2</option>
+          <option value= 3>3</option>
+          <option value= 4>4</option>
+          <option value= 5>5</option>
+
+        </select> stars.
+      </label></p>
+      <p id = "right1"><input id = "button1" type = "submit" value = "Add"></p>
+    </form>
+
+ 
+  </div>
+
+
+
+
+</body>
+</html>

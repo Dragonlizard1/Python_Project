@@ -1,0 +1,43 @@
+<html>
+<head>
+  <title>Login_Reg</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'appointment/my_style_sheet2.css' %}" charset="utf-8">
+</head>
+<body>
+  <p><a href = "/appointments">Dashboard</a> | <a href = "/main">Logout</a></p>
+  {% if messages %}
+  {% for message in messages %}
+ 
+     <p id = "error1">{{message}}</p>
+
+  {% endfor %}
+  {% endif %}
+
+
+
+
+
+
+  <div class = "modify">
+    <h2>Add Appointment</h2>
+    <form action='/update2/{{id1}}' method='POST'>   
+      {% csrf_token %}
+      <p><label for="tasks">Tasks: <input type="text" name="tasks" id="tasks" value = "{{task}}"></label></p>
+      <p><select name = "status">
+        <option value="Pending">Pending</option>
+        <option value="Done">Done</option>
+        
+        <option value="Missed">Missed</option>
+      </select></p>
+     
+      <p><label for="date1">Date of Birth: <input type="date" name="date1" id="date1" value = "{{date}}"></label></p>
+      <p><label for ="time">Time: <input id="time" type="time" name = "time" value = "{{time}}">
+
+      <input class = "button" type="submit" value="Update">
+    </form>
+  </div>
+
+
+</body>
+</html>

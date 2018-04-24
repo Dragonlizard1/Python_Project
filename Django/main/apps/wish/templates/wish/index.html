@@ -1,0 +1,44 @@
+<html>
+<head>
+  <title>Registration and Login</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'wish/my_style_sheet.css' %}" charset="utf-8">
+</head>
+<body>
+  {% if messages %}
+  {% for message in messages %}
+ 
+     <p id = "error1">{{message}}</p>
+
+  {% endfor %}
+  {% endif %}
+
+
+  <div class = "modify">
+    <h2>Registration:</h2>
+    <form action='/register' method='POST'>   
+      {% csrf_token %}
+      <p><label for="f_name">First Name: <input type="text" name="f_name" id="name"></label></p>
+      <p><label for="l_name">Last Name: <input type="text" name="l_name" id="l_name"></label></p>
+      <p><label for="email">Email: <input type="text" name="email" id="email"></label></p>
+      <p>*Password should be at least 8 characters</p>
+      <p><label for="password">Password: <input type="text" name="password" id="password"></label></p>
+      <p><label for="c_password">Confirm pw: <input type="text" name="c_password" id="c_password"></label></p>
+      <p><label for="hired">Date Hired: <input type="date" name="hired" id="hired"></label></p>
+      <input class = "button" type="submit" value="Register">
+    </form>
+  </div>
+
+  <div class = "modify">
+    <h2>Login:</h2>
+    <form action='/login' method='POST'>   
+      {% csrf_token %}
+
+      <p><label for="email">Email:<input type="text" name="email" id="email"></label></p>
+      <p><label for="password">Password:<input type="text" name="password" id="password"></label></p>
+      <input class = "button" type="submit" value="Login">
+    </form>
+  </div>
+
+</body>
+</html>

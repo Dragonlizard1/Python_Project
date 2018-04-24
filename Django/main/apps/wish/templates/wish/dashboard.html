@@ -1,0 +1,79 @@
+<html>
+<head>
+  <title>Dashboard</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'wish/my_style_sheet2.css' %}" charset="utf-8">
+</head>
+<body>
+  <p id = "link1"><a href = "/logout">Logout</a></p>
+  {% if messages %}
+  {% for message in messages %}
+ 
+     <p id = "error1">{{message}}</p>
+
+  {% endfor %}
+  {% endif %}
+
+
+  <div class = "modify">
+    <h2>Hello, {{name}} </h2>
+    <table>
+      <h5 class = "left1">Your Wish List:</h5>
+    <thead>
+      <th>Item</th>
+      <th>Added By</th>
+      <th>Date Added</th>
+      <th>Action</th>
+    </thead>
+
+    {% for element in wishlist  %}
+    <tr>
+
+      <td><a href = "/wish_items/{{element.id}}">{{ element.item}}</a></td>    
+      <td>{{ element.name1 }}</td>
+      <td>{{ element.created_at }}</td>
+      {% if element.name1 != name %}
+      <td><a href = "/delete/{{element.id}}">Remove from my Wishlist</a> </td>
+      {% else %}
+      <td><a href = "/delete/{{element.id}}">Delete</a> </td>
+       {% endif %}
+    </tr>
+
+    {% endfor %}
+    <table>
+  </div>
+
+  <div class = "modify">
+    
+    <table>
+      <h5 class = "left1">Other User's Wish List</h5>
+    <thead>
+      <th>Item</th>
+      <th>Added By</th>
+      <th>Date Added</th>
+      <th>Action</th>
+
+    </thead>
+
+
+     {% for element in friendlist  %}
+    <tr>
+
+      <td><a href = "/wish_items/{{element.id}}">{{ element.item}}</a></td>    
+      <td>{{  element.wish.first_name  }}</td>
+      <td>{{ element.created_at }}</td>
+      <td><a href = "/addtofriend/{{element.id}}">Add to my Wishlist</a> </td>
+     
+
+    </tr>
+      {% endfor %}
+   
+    </table>
+  </div>
+
+  <p id = "link1"><a href = "/additem/{{request.session.id1}}">Add Item</a></p>
+
+
+
+</body>
+</html>

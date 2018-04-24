@@ -1,0 +1,30 @@
+<html>
+<head>
+  <title>Add item</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'wish/my_style_sheet2.css' %}" charset="utf-8">
+</head>
+<body>
+  <p><a href = "/dashboard">Home</a> | <a href = "/main">Logout</a></p>
+  {% if messages %}
+  {% for message in messages %}
+ 
+     <p id = "error1">{{message}}</p>
+
+  {% endfor %}
+  {% endif %}
+
+
+  <div class = "modify">
+    <h2>Create a New Wish List Item</h2>
+    <form action='/additem2/{{request.session.id1}}' method='POST'>   
+      {% csrf_token %}
+      <p><label for="item">Item/Product: <input type="text" name="item" id="item"></label></p>
+
+      <input class = "button" type="submit" value="Add">
+    </form>
+  </div>
+
+
+</body>
+</html>

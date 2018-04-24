@@ -1,0 +1,83 @@
+<html>
+<head>
+  <title>Login_Reg</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'appointment/my_style_sheet2.css' %}" charset="utf-8">
+</head>
+<body>
+  <p id = "link1"><a href = "/logout">Logout</a></p>
+  {% if messages %}
+  {% for message in messages %}
+ 
+     <p id = "error1">{{message}}</p>
+
+  {% endfor %}
+  {% endif %}
+
+
+  <div class = "modify">
+    <h2>Hello, {{name}} </h2>
+    <table>
+      <h5 class = "left1">Here are your appointments for today, {{date1}}</h5>
+    <thead>
+      <th>Tasks</th>
+      <th>Time</th>
+      <th>Status</th>
+      <th>Action</th>
+    </thead>
+
+    {% for element in appoint3  %}
+    <tr>
+
+      <td>{{ element.task}}</td>    
+      <td>{{  element.time  }}</td>
+      <td>{{ element.status }}</td>
+      <td><a href = "/update/{{element.id}}">Edit</a> <a href = "/delete/{{element.id}}">Delete</a></td>
+
+    </tr>
+
+    {% endfor %}
+    <table>
+  </div>
+
+  <div class = "modify">
+    
+    <table>
+      <h5 class = "left1">Your Other Appointments:</h5>
+    <thead>
+      <th>Tasks</th>
+      <th>Date</th>
+      <th>time</th>
+
+    </thead>
+
+     {% for element in appoint5  %}
+    <tr>
+
+      <td>{{ element.task}}</td>
+      <td>{{ element.date1}}</td>
+      <td>{{  element.time  }}</td>
+     
+
+    </tr>
+      {% endfor %}
+    </table>
+  </div>
+
+
+
+  <div class = "modify">
+    <h2>Add Appointment</h2>
+    <form action='/process' method='POST'>   
+      {% csrf_token %}
+   
+      <p><label for ="time">Time: <input id="time" type="time" name = "time" >
+      <p><label for="date1">Date of Birth: <input type="date" name="date1" id="date1"></label></p>
+      <p><label for="tasks">Tasks: <input type="text" name="tasks" id="tasks"></label></p>
+      <input class = "button" type="submit" value="Add">
+    </form>
+  </div>
+
+
+</body>
+</html>

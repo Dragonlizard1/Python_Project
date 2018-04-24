@@ -1,0 +1,58 @@
+<html>
+<head>
+  <title>Book Reviewer</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'book_reviewer/my_style_sheet2.css' %}" charset="utf-8">
+</head>
+<body>
+
+  <h2>Hello, {{name}} </h2><p id = "link1"><a href = "/add">Add Book and Review</a>  <a href = "/logout">Logout</a></p>
+
+  <div class = "modify">
+    <h3>Recent Book Reviews:</h3>
+
+    {% for element in booklist  %}
+      <div class = "3list">
+      <h4><a href = "/book_review/{{element.rev_rev__id}}" >{{element.rev_rev__title}}</a> </h4>
+      <p>Rating: 
+        {% for i in element.starnum %} 
+        {% if i == "y" %}
+        <img id = "stars" src = "{% static 'book_reviewer/star1.gif' %}">  
+
+        {% elif i == "x" %}
+        <img id = "stars" src = "{% static 'book_reviewer/star1outline.jpg' %}"> 
+        {% endif %}
+        {% endfor %}
+      </p>
+
+      <p><a href = "/users/{{element.review_id}}">{{element.review__first_name}}</a> says: {{element.comment}}</p>
+      <p>{{element.created_at}}</p>
+      </div>
+    {% endfor %}
+ 
+    
+      
+  
+
+
+ 
+  </div>
+
+  <div class = "modify2">
+    <h3>Other Books with Reviews:</h3>
+
+    <div id = "list">
+      {% for element in booklist1  %}
+      <p>{{element.rev_rev__title}}</p>
+
+      {% endfor %}
+    </div>
+
+
+  </div>
+
+
+
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<html>
+<head>
+  <title>Display Wish Item</title>
+  {% load static %}
+  <link rel="stylesheet" href="{% static 'wish/my_style_sheet3.css' %}" charset="utf-8">
+</head>
+<body>
+  <p><a href = "/dashboard">Home</a> | <a href = "/main">Logout</a></p>
+ 
+ <h1>{{item}}</h1>
+
+
+  <div class = "modify">
+    <h2>Users who added this product/item under their wish list:</h2>
+
+
+    {% for element in userlist  %}
+    <p>{{ element.wish.first_name }}</p>
+    {% endfor %}
+
+
+  </div>
+
+
+</body>
+</html>
